@@ -8,14 +8,41 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   useEffect(() => {
     const prepare = async () => {
-      // Simulate loading or setup tasks
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulated 2-second delay
-      SplashScreen.hideAsync(); // Hide the splash screen after preparation
+      try {
+        // Simulate loading resources
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        await SplashScreen.hideAsync();
+      }
     };
 
     prepare();
   }, []);
 
-  return <Stack />;
+  return (
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#F0E3CA',
+        },
+        headerTintColor: '#333',
+        headerShown: false // menghilangkan semua header
+      }}
+    >
+      <Stack.Screen 
+        name="index" 
+        options={{ 
+          headerShown: false 
+        }} 
+      />
+      <Stack.Screen 
+        name="(tabs)" 
+        options={{ 
+          headerShown: false // menghilangkan text (tabs)
+        }} 
+      />
+    </Stack>
+  );
 }
-
