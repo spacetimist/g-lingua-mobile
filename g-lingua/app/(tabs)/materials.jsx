@@ -11,7 +11,7 @@ const unitsData = {
       {
         title: "Weather Vocabulary and Expressions",
         type: "pdf",
-        url: require('../assets/file/weather_vocab.pdf')
+        url: require('../../assets/file/weather_vocab.pdf')
       },
       {
         title: "Weather Conversation Practice",
@@ -28,7 +28,7 @@ const unitsData = {
       {
         title: "Hobbies Vocabulary List",
         type: "pdf",
-        url: require('../assets/file/hobbies_vocab.pdf')
+        url: require('../../assets/file/hobbies_vocab.pdf')
       }
     ],
     video: "https://youtu.be/DaDaZcBE8MQ?si=UmNVrWd5YDG5xU_a"
@@ -40,7 +40,7 @@ const unitsData = {
       {
         title: "Daily Routines Vocabulary",
         type: "pdf",
-        url: require('../assets/file/routines_vocab.pdf')
+        url: require('../../assets/file/routines_vocab.pdf')
       },
       {
         title: "Daily Activities Conversation",
@@ -57,7 +57,7 @@ const unitsData = {
       {
         title: "Food Vocabulary List",
         type: "pdf",
-        url: require('../assets/file/food_vocab.pdf')
+        url: require('../../assets/file/food_vocab.pdf')
       }
     ],
     video: "https://youtu.be/bgfdqVmVjfk?si=_R8zCepMo_0OKEHV"
@@ -69,7 +69,7 @@ const unitsData = {
       {
         title: "Transportation Vocabulary",
         type: "pdf",
-        url: require('../assets/file/transportation_vocab.pdf')
+        url: require('../../assets/file/transportation_vocab.pdf')
       },
       {
         title: "Travel Expressions Guide",
@@ -109,19 +109,20 @@ const UnitButton = ({ title, onClick, isActive }) => (
 
 const DownloadButton = ({ title, url, type }) => {
   const router = useRouter();
-  
+
   const handlePress = () => {
     if (type === "link") {
       // Untuk link eksternal, gunakan Linking.openURL
       Linking.openURL(url);
     } else if (type === "pdf") {
-      // Untuk file PDF lokal. Navigate ke PDF viewer dengan source dan title
-      console.log("Opening local PDF file");
-      // Di sini bisa menambahkan navigasi ke PDF viewer
-      navigation.navigate('PDFViewer', { 
-        pdfSource: url,
-        title: title
-       });
+       // Untuk file PDF, handle secara lokal
+      try {
+        const asset = url;  // url sudah berupa hasil require()
+        Linking.openURL(asset.uri);
+      } catch (error) {
+        console.error('Error opening PDF:', error);
+        Alert.alert('Error', 'Could not open PDF file');
+      }
     }
   };
 
