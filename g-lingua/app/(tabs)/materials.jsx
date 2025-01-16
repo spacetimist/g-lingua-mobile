@@ -11,7 +11,7 @@ const unitsData = {
       {
         title: "Weather Vocabulary and Expressions",
         type: "pdf",
-        url: require('../assets/file/weather_vocab.pdf')
+        url: require('../../assets/file/weather_vocab.pdf')
       },
       {
         title: "Weather Conversation Practice",
@@ -28,7 +28,7 @@ const unitsData = {
       {
         title: "Hobbies Vocabulary List",
         type: "pdf",
-        url: require('../assets/file/hobbies_vocab.pdf')
+        url: require('../../assets/file/hobbies_vocab.pdf')
       }
     ],
     video: "https://youtu.be/DaDaZcBE8MQ?si=UmNVrWd5YDG5xU_a"
@@ -40,7 +40,7 @@ const unitsData = {
       {
         title: "Daily Routines Vocabulary",
         type: "pdf",
-        url: require('../assets/file/routines_vocab.pdf')
+        url: require('../../assets/file/routines_vocab.pdf')
       },
       {
         title: "Daily Activities Conversation",
@@ -57,7 +57,7 @@ const unitsData = {
       {
         title: "Food Vocabulary List",
         type: "pdf",
-        url: require('../assets/file/food_vocab.pdf')
+        url: require('../../assets/file/food_vocab.pdf')
       }
     ],
     video: "https://youtu.be/bgfdqVmVjfk?si=_R8zCepMo_0OKEHV"
@@ -69,7 +69,7 @@ const unitsData = {
       {
         title: "Transportation Vocabulary",
         type: "pdf",
-        url: require('../assets/file/transportation_vocab.pdf')
+        url: require('../../assets/file/transportation_vocab.pdf')
       },
       {
         title: "Travel Expressions Guide",
