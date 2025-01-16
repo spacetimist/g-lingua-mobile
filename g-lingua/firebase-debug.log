@@ -1,0 +1,326 @@
+[debug] [2025-01-16T11:21:11.196Z] ----------------------------------------------------------------------
+[debug] [2025-01-16T11:21:11.198Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kerly\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2025-01-16T11:21:11.198Z] CLI Version:   13.29.1
+[debug] [2025-01-16T11:21:11.198Z] Platform:      win32
+[debug] [2025-01-16T11:21:11.199Z] Node Version:  v22.11.0
+[debug] [2025-01-16T11:21:11.199Z] Time:          Thu Jan 16 2025 18:21:11 GMT+0700 (Western Indonesia Time)
+[debug] [2025-01-16T11:21:11.199Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-16T11:21:11.305Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-16T11:21:11.305Z] > authorizing via signed-in user (18222090@std.stei.itb.ac.id)
+[debug] [2025-01-16T11:21:11.540Z] java version "21.0.2" 2024-01-16 LTS
+
+[debug] [2025-01-16T11:21:11.541Z] Java(TM) SE Runtime Environment (build 21.0.2+13-LTS-58)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.2+13-LTS-58, mixed mode, sharing)
+
+[debug] [2025-01-16T11:21:11.592Z] Parsed Java major version: 21
+[info] i  emulators: Starting emulators: firestore, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: firestore, hosting"}}
+[debug] [2025-01-16T11:21:11.606Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-01-16T11:21:11.606Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-01-16T11:21:11.606Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-01-16T11:21:11.607Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-01-16T11:21:11.607Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-01-16T11:21:11.612Z] [hub] writing locator at C:\Users\kerly\AppData\Local\Temp\hub-g-lingua-mobile.json
+[info] i  firestore: downloading cloud-firestore-emulator-v1.19.8.jar... {"metadata":{"emulator":{"name":"firestore"},"message":"downloading cloud-firestore-emulator-v1.19.8.jar..."}}
+[debug] [2025-01-16T11:21:11.626Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.8.jar 
+[debug] [2025-01-16T11:21:12.903Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.8.jar 200
+[debug] [2025-01-16T11:21:12.903Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.8.jar [stream]
+[debug] [2025-01-16T11:21:49.901Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-01-16T11:21:49.901Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2025-01-16T11:21:49.901Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\kerly\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","g-lingua-mobile","--rules","C:\\Proyek PAWM\\g-lingua-mobile\\g-lingua\\firestore.rules","--single_project_mode",true],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8080} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\kerly\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"g-lingua-mobile\",\"--rules\",\"C:\\\\Proyek PAWM\\\\g-lingua-mobile\\\\g-lingua\\\\firestore.rules\",\"--single_project_mode\",true],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8080}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2025-01-16T11:21:52.227Z] Checked if tokens are valid: false, expires at: 1737018801093
+[debug] [2025-01-16T11:21:52.227Z] Checked if tokens are valid: false, expires at: 1737018801093
+[debug] [2025-01-16T11:21:52.227Z] > refreshing access token with scopes: []
+[debug] [2025-01-16T11:21:52.229Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-01-16T11:21:52.229Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-16T11:21:52.756Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-01-16T11:21:52.756Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-16T11:21:52.766Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/g-lingua-mobile/sites 
+[debug] [2025-01-16T11:22:05.285Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/g-lingua-mobile/sites 200
+[debug] [2025-01-16T11:22:05.285Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/g-lingua-mobile/sites {"sites":[{"name":"projects/g-lingua-mobile/sites/g-lingua-mobile","defaultUrl":"https://g-lingua-mobile.web.app","appId":"1:341826578532:web:a93c24bd9cfd1efa9f5771","type":"DEFAULT_SITE"}]}
+[debug] [2025-01-16T11:22:05.286Z] Checked if tokens are valid: true, expires at: 1737030111757
+[debug] [2025-01-16T11:22:05.286Z] Checked if tokens are valid: true, expires at: 1737030111757
+[debug] [2025-01-16T11:22:05.286Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/g-lingua-mobile/webApps/1:341826578532:web:a93c24bd9cfd1efa9f5771/config [none]
+[debug] [2025-01-16T11:22:18.242Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/g-lingua-mobile/webApps/1:341826578532:web:a93c24bd9cfd1efa9f5771/config 200
+[debug] [2025-01-16T11:22:18.242Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/g-lingua-mobile/webApps/1:341826578532:web:a93c24bd9cfd1efa9f5771/config {"projectId":"g-lingua-mobile","appId":"1:341826578532:web:a93c24bd9cfd1efa9f5771","storageBucket":"g-lingua-mobile.firebasestorage.app","apiKey":"AIzaSyDF0IPLmZJ9xecZCVrdI5CFYF5c2-o6lpM","authDomain":"g-lingua-mobile.firebaseapp.com","messagingSenderId":"341826578532","measurementId":"G-F3YRY3YQH0"}
+[debug] [2025-01-16T11:22:18.247Z] Checked if tokens are valid: true, expires at: 1737030111757
+[debug] [2025-01-16T11:22:18.247Z] Checked if tokens are valid: true, expires at: 1737030111757
+[debug] [2025-01-16T11:22:18.248Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/g-lingua-mobile [none]
+[debug] [2025-01-16T11:22:18.795Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/g-lingua-mobile 200
+[debug] [2025-01-16T11:22:18.795Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/g-lingua-mobile {"projectId":"g-lingua-mobile","projectNumber":"341826578532","displayName":"g-lingua-mobile","name":"projects/g-lingua-mobile","resources":{"hostingSite":"g-lingua-mobile"},"state":"ACTIVE","etag":"1_18919716-9b95-40a2-bc4f-cb4be03d4973"}
+[info] i  hosting[g-lingua-mobile]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[g-lingua-mobile]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[info] i  ui: downloading ui-v1.14.0.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.14.0.zip..."}}
+[debug] [2025-01-16T11:22:18.826Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.14.0.zip 
+[debug] [2025-01-16T11:22:29.939Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.14.0.zip 200
+[debug] [2025-01-16T11:22:29.939Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.14.0.zip [stream]
+[debug] [2025-01-16T11:22:32.272Z] Data is 3615311
+[debug] [2025-01-16T11:22:32.273Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-01-16T11:22:32.273Z] [unzip] Processing entry: client\
+[debug] [2025-01-16T11:22:32.273Z] [unzip] mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\
+[debug] [2025-01-16T11:22:32.274Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=293 bytes, uncompressed_size=293 bytes)
+[debug] [2025-01-16T11:22:32.274Z] [unzip] Processing entry: client\favicon-16x16.png
+[debug] [2025-01-16T11:22:32.274Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.275Z] [unzip] Writing file: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\favicon-16x16.png
+[debug] [2025-01-16T11:22:32.276Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=1433 bytes, uncompressed_size=2611 bytes)
+[debug] [2025-01-16T11:22:32.276Z] [unzip] Processing entry: client\safari-pinned-tab.svg
+[debug] [2025-01-16T11:22:32.276Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.276Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\safari-pinned-tab.svg
+[debug] [2025-01-16T11:22:32.281Z] [unzip] Entry: client/favicon.ico (compressed_size=2933 bytes, uncompressed_size=13294 bytes)
+[debug] [2025-01-16T11:22:32.281Z] [unzip] Processing entry: client\favicon.ico
+[debug] [2025-01-16T11:22:32.281Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.282Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\favicon.ico
+[debug] [2025-01-16T11:22:32.288Z] [unzip] Entry: client/index.html (compressed_size=1363 bytes, uncompressed_size=3071 bytes)
+[debug] [2025-01-16T11:22:32.288Z] [unzip] Processing entry: client\index.html
+[debug] [2025-01-16T11:22:32.288Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.288Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\index.html
+[debug] [2025-01-16T11:22:32.290Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=2684 bytes, uncompressed_size=2684 bytes)
+[debug] [2025-01-16T11:22:32.290Z] [unzip] Processing entry: client\android-chrome-192x192.png
+[debug] [2025-01-16T11:22:32.291Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.291Z] [unzip] Writing file: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\android-chrome-192x192.png
+[debug] [2025-01-16T11:22:32.292Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=2123 bytes, uncompressed_size=2152 bytes)
+[debug] [2025-01-16T11:22:32.292Z] [unzip] Processing entry: client\apple-touch-icon.png
+[debug] [2025-01-16T11:22:32.292Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.292Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\apple-touch-icon.png
+[debug] [2025-01-16T11:22:32.293Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=5369 bytes, uncompressed_size=5411 bytes)
+[debug] [2025-01-16T11:22:32.293Z] [unzip] Processing entry: client\android-chrome-512x512.png
+[debug] [2025-01-16T11:22:32.293Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.293Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\android-chrome-512x512.png
+[debug] [2025-01-16T11:22:32.295Z] [unzip] Entry: client/manifest.json (compressed_size=245 bytes, uncompressed_size=551 bytes)
+[debug] [2025-01-16T11:22:32.295Z] [unzip] Processing entry: client\manifest.json
+[debug] [2025-01-16T11:22:32.295Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.295Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\manifest.json
+[debug] [2025-01-16T11:22:32.296Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2025-01-16T11:22:32.296Z] [unzip] Processing entry: client\robots.txt
+[debug] [2025-01-16T11:22:32.296Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.296Z] [unzip] Writing file: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\robots.txt
+[debug] [2025-01-16T11:22:32.297Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=2034 bytes, uncompressed_size=2034 bytes)
+[debug] [2025-01-16T11:22:32.297Z] [unzip] Processing entry: client\mstile-150x150.png
+[debug] [2025-01-16T11:22:32.297Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.297Z] [unzip] Writing file: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\mstile-150x150.png
+[debug] [2025-01-16T11:22:32.298Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-01-16T11:22:32.298Z] [unzip] Processing entry: client\assets\
+[debug] [2025-01-16T11:22:32.298Z] [unzip] mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\
+[debug] [2025-01-16T11:22:32.299Z] [unzip] Entry: client/assets/index-ClZTY_JS.js.map (compressed_size=2328270 bytes, uncompressed_size=9947004 bytes)
+[debug] [2025-01-16T11:22:32.299Z] [unzip] Processing entry: client\assets\index-ClZTY_JS.js.map
+[debug] [2025-01-16T11:22:32.299Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets
+[debug] [2025-01-16T11:22:32.299Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\index-ClZTY_JS.js.map
+[debug] [2025-01-16T11:22:32.347Z] [unzip] Entry: client/assets/index-ClZTY_JS.js (compressed_size=567195 bytes, uncompressed_size=2035940 bytes)
+[debug] [2025-01-16T11:22:32.347Z] [unzip] Processing entry: client\assets\index-ClZTY_JS.js
+[debug] [2025-01-16T11:22:32.347Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets
+[debug] [2025-01-16T11:22:32.347Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\index-ClZTY_JS.js
+[debug] [2025-01-16T11:22:32.358Z] [unzip] Entry: client/assets/index-BdgySamB.css (compressed_size=35979 bytes, uncompressed_size=298654 bytes)
+[debug] [2025-01-16T11:22:32.358Z] [unzip] Processing entry: client\assets\index-BdgySamB.css
+[debug] [2025-01-16T11:22:32.359Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets
+[debug] [2025-01-16T11:22:32.359Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\index-BdgySamB.css
+[debug] [2025-01-16T11:22:32.362Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-01-16T11:22:32.362Z] [unzip] Processing entry: client\assets\extensions\
+[debug] [2025-01-16T11:22:32.362Z] [unzip] mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\extensions\
+[debug] [2025-01-16T11:22:32.362Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2025-01-16T11:22:32.362Z] [unzip] Processing entry: client\assets\extensions\default-extension.png
+[debug] [2025-01-16T11:22:32.362Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\extensions
+[debug] [2025-01-16T11:22:32.363Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\extensions\default-extension.png
+[debug] [2025-01-16T11:22:32.364Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-01-16T11:22:32.364Z] [unzip] Processing entry: client\assets\img\
+[debug] [2025-01-16T11:22:32.364Z] [unzip] mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\img\
+[debug] [2025-01-16T11:22:32.365Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2025-01-16T11:22:32.365Z] [unzip] Processing entry: client\assets\img\database.png
+[debug] [2025-01-16T11:22:32.365Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\img
+[debug] [2025-01-16T11:22:32.365Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\img\database.png
+[debug] [2025-01-16T11:22:32.366Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-01-16T11:22:32.366Z] [unzip] Processing entry: client\assets\provider-icons\
+[debug] [2025-01-16T11:22:32.366Z] [unzip] mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\
+[debug] [2025-01-16T11:22:32.367Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2025-01-16T11:22:32.367Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_saml.svg
+[debug] [2025-01-16T11:22:32.367Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.367Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_saml.svg
+[debug] [2025-01-16T11:22:32.369Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2025-01-16T11:22:32.369Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_phone.svg
+[debug] [2025-01-16T11:22:32.369Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.369Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_phone.svg
+[debug] [2025-01-16T11:22:32.370Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2025-01-16T11:22:32.370Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2025-01-16T11:22:32.370Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.370Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2025-01-16T11:22:32.371Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2025-01-16T11:22:32.371Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2025-01-16T11:22:32.371Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.372Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2025-01-16T11:22:32.373Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2025-01-16T11:22:32.373Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_apple.svg
+[debug] [2025-01-16T11:22:32.373Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.373Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_apple.svg
+[debug] [2025-01-16T11:22:32.374Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2025-01-16T11:22:32.374Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_github.svg
+[debug] [2025-01-16T11:22:32.374Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.374Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_github.svg
+[debug] [2025-01-16T11:22:32.375Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2025-01-16T11:22:32.375Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2025-01-16T11:22:32.375Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.375Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2025-01-16T11:22:32.376Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2025-01-16T11:22:32.376Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2025-01-16T11:22:32.376Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.377Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2025-01-16T11:22:32.377Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2025-01-16T11:22:32.377Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2025-01-16T11:22:32.378Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.378Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2025-01-16T11:22:32.379Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2025-01-16T11:22:32.379Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2025-01-16T11:22:32.379Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.379Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2025-01-16T11:22:32.380Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2025-01-16T11:22:32.380Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_email.svg
+[debug] [2025-01-16T11:22:32.380Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.380Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_email.svg
+[debug] [2025-01-16T11:22:32.381Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2025-01-16T11:22:32.381Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_google.svg
+[debug] [2025-01-16T11:22:32.381Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.382Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_google.svg
+[debug] [2025-01-16T11:22:32.383Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2025-01-16T11:22:32.383Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2025-01-16T11:22:32.383Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2025-01-16T11:22:32.383Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2025-01-16T11:22:32.384Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2025-01-16T11:22:32.384Z] [unzip] Processing entry: client\browserconfig.xml
+[debug] [2025-01-16T11:22:32.384Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.384Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\browserconfig.xml
+[debug] [2025-01-16T11:22:32.386Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=475 bytes, uncompressed_size=475 bytes)
+[debug] [2025-01-16T11:22:32.386Z] [unzip] Processing entry: client\favicon-32x32.png
+[debug] [2025-01-16T11:22:32.386Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2025-01-16T11:22:32.386Z] [unzip] Writing file: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\client\favicon-32x32.png
+[debug] [2025-01-16T11:22:32.387Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-01-16T11:22:32.387Z] [unzip] Processing entry: server\
+[debug] [2025-01-16T11:22:32.387Z] [unzip] mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server\
+[debug] [2025-01-16T11:22:32.387Z] [unzip] Entry: server/server.mjs.map (compressed_size=296496 bytes, uncompressed_size=1355667 bytes)
+[debug] [2025-01-16T11:22:32.387Z] [unzip] Processing entry: server\server.mjs.map
+[debug] [2025-01-16T11:22:32.387Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server
+[debug] [2025-01-16T11:22:32.387Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server\server.mjs.map
+[debug] [2025-01-16T11:22:32.394Z] [unzip] Entry: server/server.mjs (compressed_size=315701 bytes, uncompressed_size=1172682 bytes)
+[debug] [2025-01-16T11:22:32.394Z] [unzip] Processing entry: server\server.mjs
+[debug] [2025-01-16T11:22:32.394Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server
+[debug] [2025-01-16T11:22:32.394Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server\server.mjs
+[debug] [2025-01-16T11:22:32.401Z] [unzip] Entry: server/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2025-01-16T11:22:32.401Z] [unzip] Processing entry: server\assets\
+[debug] [2025-01-16T11:22:32.401Z] [unzip] mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server\assets\
+[debug] [2025-01-16T11:22:32.401Z] [unzip] Entry: server/assets/multipart-parser-DGCUZdXu.mjs.map (compressed_size=4791 bytes, uncompressed_size=17918 bytes)
+[debug] [2025-01-16T11:22:32.401Z] [unzip] Processing entry: server\assets\multipart-parser-DGCUZdXu.mjs.map
+[debug] [2025-01-16T11:22:32.401Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server\assets
+[debug] [2025-01-16T11:22:32.402Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server\assets\multipart-parser-DGCUZdXu.mjs.map
+[debug] [2025-01-16T11:22:32.403Z] [unzip] Entry: server/assets/multipart-parser-DGCUZdXu.mjs (compressed_size=2621 bytes, uncompressed_size=10390 bytes)
+[debug] [2025-01-16T11:22:32.403Z] [unzip] Processing entry: server\assets\multipart-parser-DGCUZdXu.mjs
+[debug] [2025-01-16T11:22:32.403Z] [unzip] else mkdir: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server\assets
+[debug] [2025-01-16T11:22:32.403Z] [unzip] deflating: C:\Users\kerly\.cache\firebase\emulators\ui-v1.14.0\server\assets\multipart-parser-DGCUZdXu.mjs
+[debug] [2025-01-16T11:22:32.412Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Firestore │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Hosting   │ 127.0.0.1:5000 │ n/a                             │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2025-01-16T11:22:58.594Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js [none]
+[debug] [2025-01-16T11:22:58.597Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js [none]
+[debug] [2025-01-16T11:22:58.600Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js [none]
+[debug] [2025-01-16T11:22:58.602Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js [none]
+[debug] [2025-01-16T11:22:58.604Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-functions-compat.js [none]
+[debug] [2025-01-16T11:22:58.605Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-messaging-compat.js [none]
+[debug] [2025-01-16T11:22:58.713Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js 200
+[debug] [2025-01-16T11:22:58.713Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js [stream]
+[debug] [2025-01-16T11:22:58.718Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js 200
+[debug] [2025-01-16T11:22:58.718Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js [stream]
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] "GET /__/firebase/11.1.0/firebase-app-compat.js HTTP/1.1" 200 10060 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] \"GET /__/firebase/11.1.0/firebase-app-compat.js HTTP/1.1\" 200 10060 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2025-01-16T11:22:58.722Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-storage-compat.js [none]
+[debug] [2025-01-16T11:22:58.735Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js 200
+[debug] [2025-01-16T11:22:58.736Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js [stream]
+[debug] [2025-01-16T11:22:58.760Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-storage-compat.js 200
+[debug] [2025-01-16T11:22:58.760Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-storage-compat.js [stream]
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] "GET /__/firebase/11.1.0/firebase-database-compat.js HTTP/1.1" 200 48030 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] \"GET /__/firebase/11.1.0/firebase-database-compat.js HTTP/1.1\" 200 48030 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2025-01-16T11:22:58.819Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js 200
+[debug] [2025-01-16T11:22:58.819Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js [stream]
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] "GET /__/firebase/11.1.0/firebase-auth-compat.js HTTP/1.1" 200 40587 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] \"GET /__/firebase/11.1.0/firebase-auth-compat.js HTTP/1.1\" 200 40587 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2025-01-16T11:22:58.827Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics-compat.js [none]
+[debug] [2025-01-16T11:22:58.830Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-remote-config-compat.js [none]
+[debug] [2025-01-16T11:22:58.862Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-remote-config-compat.js 200
+[debug] [2025-01-16T11:22:58.862Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-remote-config-compat.js [stream]
+[debug] [2025-01-16T11:22:58.894Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics-compat.js 200
+[debug] [2025-01-16T11:22:58.895Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics-compat.js [stream]
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] "GET /__/firebase/11.1.0/firebase-analytics-compat.js HTTP/1.1" 200 9219 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] \"GET /__/firebase/11.1.0/firebase-analytics-compat.js HTTP/1.1\" 200 9219 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] "GET /__/firebase/11.1.0/firebase-remote-config-compat.js HTTP/1.1" 200 8819 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] \"GET /__/firebase/11.1.0/firebase-remote-config-compat.js HTTP/1.1\" 200 8819 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2025-01-16T11:22:58.900Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-performance-compat.js [none]
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] \"GET /__/firebase/init.js?useEmulator=true HTTP/1.1\" 200 - \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] "GET /__/firebase/11.1.0/firebase-firestore-compat.js HTTP/1.1" 200 102435 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:58 +0000] \"GET /__/firebase/11.1.0/firebase-firestore-compat.js HTTP/1.1\" 200 102435 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2025-01-16T11:22:58.937Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-performance-compat.js 200
+[debug] [2025-01-16T11:22:58.938Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-performance-compat.js [stream]
+[debug] [2025-01-16T11:22:58.939Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-messaging-compat.js 200
+[debug] [2025-01-16T11:22:58.940Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-messaging-compat.js [stream]
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:59 +0000] "GET /__/firebase/11.1.0/firebase-messaging-compat.js HTTP/1.1" 200 10078 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:59 +0000] \"GET /__/firebase/11.1.0/firebase-messaging-compat.js HTTP/1.1\" 200 10078 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2025-01-16T11:22:59.016Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-functions-compat.js 200
+[debug] [2025-01-16T11:22:59.016Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/11.1.0/firebase-functions-compat.js [stream]
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:59 +0000] "GET /__/firebase/11.1.0/firebase-storage-compat.js HTTP/1.1" 200 12993 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:59 +0000] \"GET /__/firebase/11.1.0/firebase-storage-compat.js HTTP/1.1\" 200 12993 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:22:59 +0000] "GET /__/firebase/11.1.0/firebase-functions-compat.js HTTP/1.1" 200 3962 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:22:59 +0000] \"GET /__/firebase/11.1.0/firebase-functions-compat.js HTTP/1.1\" 200 3962 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:23:00 +0000] "GET /__/firebase/11.1.0/firebase-performance-compat.js HTTP/1.1" 200 10253 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:23:00 +0000] \"GET /__/firebase/11.1.0/firebase-performance-compat.js HTTP/1.1\" 200 10253 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:23:00 +0000] "GET /favicon.ico HTTP/1.1" 200 - "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:23:00 +0000] \"GET /favicon.ico HTTP/1.1\" 200 - \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:28:12 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:28:12 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:28:12 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:28:12 +0000] \"GET /__/firebase/init.js?useEmulator=true HTTP/1.1\" 200 - \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:28:13 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:28:13 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [16/Jan/2025:11:28:13 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2025:11:28:13 +0000] \"GET /__/firebase/init.js?useEmulator=true HTTP/1.1\" 200 - \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2025-01-16T11:33:13.525Z] Received signal SIGINT (Ctrl-C) 1
+[info]  
+[info] i  emulators: Received SIGINT (Ctrl-C) for the first time. Starting a clean shutdown. 
+[info] i  emulators: Please wait for a clean shutdown or send the SIGINT (Ctrl-C) signal again to stop right now. 
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  ui: Stopping Emulator UI {"metadata":{"emulator":{"name":"ui"},"message":"Stopping Emulator UI"}}
+[info] i  hosting: Stopping Hosting Emulator {"metadata":{"emulator":{"name":"hosting"},"message":"Stopping Hosting Emulator"}}
+[info] i  firestore: Stopping Firestore Emulator {"metadata":{"emulator":{"name":"firestore"},"message":"Stopping Firestore Emulator"}}
+[warn] !  Firestore Emulator has exited upon receiving signal: SIGINT 
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[info] i  logging: Stopping Logging Emulator {"metadata":{"emulator":{"name":"logging"},"message":"Stopping Logging Emulator"}}
+[debug] [2025-01-16T11:33:13.538Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[debug] [2025-01-16T11:33:14.911Z] Received signal SIGINT (Ctrl-C) 2
+[info]  
+[debug] [2025-01-16T11:33:14.911Z] Skipping clean onExit() and cleanShutdown()
+[warn] !  emulators: Received SIGINT (Ctrl-C) 2 times. You have forced the Emulator Suite to exit without waiting for 0 subprocess to finish. These processes may still be running on your machine:  
+[info] 
+┌──────────┬───────────┬─────┐
+│ Emulator │ Host:Port │ PID │
+└──────────┴───────────┴─────┘
+
+To force them to exit run:
+
+[info] TASKKILL  /T
+
+[debug] [2025-01-16T11:33:18.721Z] Received signal SIGINT (Ctrl-C) 3
+[info]  
+[debug] [2025-01-16T11:33:18.721Z] Skipping clean onExit() and cleanShutdown()
+[warn] !  emulators: Received SIGINT (Ctrl-C) 3 times. You have forced the Emulator Suite to exit without waiting for 0 subprocess to finish. These processes may still be running on your machine:  
+[info] 
+┌──────────┬───────────┬─────┐
+│ Emulator │ Host:Port │ PID │
+└──────────┴───────────┴─────┘
+
+To force them to exit run:
+
+[info] TASKKILL  /T
+
+[debug] [2025-01-16T11:33:23.565Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\kerly\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:269:49)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+[error] 
+[error] Error: An unexpected error has occurred.

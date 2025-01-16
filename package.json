@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@expo/webpack-config": "^19.0.1",
+    "@react-navigation/native": "^7.0.14",
+    "@react-navigation/stack": "^7.1.1",
+    "expo-auth-session": "^6.0.2",
+    "expo-constants": "^17.0.4",
+    "firebase": "^11.1.0"
+  }
+}

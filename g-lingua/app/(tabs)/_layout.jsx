@@ -11,8 +11,8 @@ export default function TabLayout() {
             backgroundColor: '#F0E3CA',
             borderTopWidth: 0,
             elevation: 0,
-            height: Platform.OS === 'ios' ? 85 : 65, // Sesuaikan height berdasarkan platform
-            paddingBottom: Platform.OS === 'ios' ? 25 : 5, // Lebih besar untuk iOS
+            height: Platform.OS === 'ios' ? 85 : 60, // Sesuaikan height berdasarkan platform
+            paddingBottom: Platform.OS === 'ios' ? 25 : 10, // Lebih besar untuk iOS
             // paddingHorizontal: 10,
             // paddingVertical: 8,
             paddingTop: 5,
