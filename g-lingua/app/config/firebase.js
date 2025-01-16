@@ -1,31 +1,34 @@
-// app/config/firebase.js
-import { initializeApp } from 'firebase/app';
-import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+//// app/config/firebase.js
+//import { initializeApp } from 'firebase/app';
+//import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+//import { getFirestore } from 'firebase/firestore';
+//import AsyncStorage from '@react-native-async-storage/async-storage';
+//
+//// Firebase configuration
+//const firebaseConfig = {
+//  apiKey: "AIzaSyDF0IPLmZJ9xecZCVrdI5CFYF5c2-o6lpM",
+//  authDomain: "g-lingua-mobile.firebaseapp.com",
+//  projectId: "g-lingua-mobile",
+//  storageBucket: "g-lingua-mobile.firebasestorage.app",
+//  messagingSenderId: "341826578532",
+//  appId: "1:341826578532:web:a93c24bd9cfd1efa9f5771",
+//  measurementId: "G-F3YRY3YQH0"
+//};
+//
+//// Initialize Firebase
+//const app = initializeApp(firebaseConfig);
+//
+//// Initialize Auth
+//const auth = initializeAuth(app, {
+//  persistence: getReactNativePersistence(AsyncStorage),
+//});
+//
+//// Initialize Firestore
+//const db = getFirestore(app);
+//
+//export { auth, db };
 
-// Your Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDF0IPLmZJ9xecZCVrdI5CFYF5c2-o6lpM",
-  authDomain: "g-lingua-mobile.firebaseapp.com",
-  projectId: "g-lingua-mobile",
-  storageBucket: "g-lingua-mobile.firebasestorage.app",
-  messagingSenderId: "341826578532",
-  appId: "1:341826578532:web:a93c24bd9cfd1efa9f5771",
-  measurementId: "G-F3YRY3YQH0"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Auth with AsyncStorage persistence
-const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(AsyncStorage)
-});
-
-const db = getFirestore(app);
-
-export { auth, db };
+// ----------------------------------------------
 
 // // import { initializeApp } from 'firebase/app';
 // // import { getAuth } from 'firebase/auth';
@@ -70,3 +73,32 @@ export { auth, db };
 // const analytics = getAnalytics(app);
 // export const auth = getAuth(app);
 // export const db = getFirestore(app);
+
+// ----------------------------------
+
+// app/config/firebase.js
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDF0IPLmZJ9xecZCVrdI5CFYF5c2-o6lpM",
+  authDomain: "g-lingua-mobile.firebaseapp.com",
+  projectId: "g-lingua-mobile",
+  storageBucket: "g-lingua-mobile.firebasestorage.app",
+  messagingSenderId: "341826578532",
+  appId: "1:341826578532:web:a93c24bd9cfd1efa9f5771",
+  measurementId: "G-F3YRY3YQH0"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Auth (without persistence for now)
+const auth = getAuth(app);
+
+// Initialize Firestore
+const db = getFirestore(app);
+
+export { auth, db };
