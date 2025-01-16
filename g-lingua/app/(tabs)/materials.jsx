@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Linking } from 'react-native';
+import { useRouter } from 'expo-router';
 
 // Mock data for all units and their materials
 const unitsData = {
@@ -10,68 +11,73 @@ const unitsData = {
       {
         title: "Weather Vocabulary and Expressions",
         type: "pdf",
-        url: "/materials/weather_vocab.pdf"
+        url: require('../assets/file/weather_vocab.pdf')
       },
       {
         title: "Weather Conversation Practice",
-        type: "pdf",
-        url: "/materials/weather_practice.pdf"
+        type: "link",
+        url: "https://www.bbc.co.uk/learningenglish/features/real-easy-english/240906"
       }
     ],
-    video: "https://www.youtube.com/embed/40PRWD1-HWA?feature=oembed"
+    video: "https://youtu.be/40PRWD1-HWA?si=9E_Tg6AxAc2yYH5s"
   },
   unit2: {
-    title: "Unit 2: American Culture",
-    description: "Explore various aspects of American culture, traditions, and daily life",
+    title: "Unit 2: Hobbies and Free Time Activities",
+    description: "Explore vocabulary and expressions related to what activities you do in your spare time",
     materials: [
       {
-        title: "American Customs and Traditions",
+        title: "Hobbies Vocabulary List",
         type: "pdf",
-        url: "/materials/american_customs.pdf"
-      },
-      {
-        title: "American Lifestyle Guide",
-        type: "pdf",
-        url: "/materials/american_lifestyle.pdf"
+        url: require('../assets/file/hobbies_vocab.pdf')
       }
     ],
-    video: "https://www.youtube.com/embed/ew864XMV-lY"
+    video: "https://youtu.be/DaDaZcBE8MQ?si=UmNVrWd5YDG5xU_a"
   },
   unit3: {
-    title: "Unit 3: Daily Activities",
+    title: "Unit 3: Daily Routines",
     description: "Learn how to describe your daily routine and activities",
     materials: [
       {
-        title: "Daily Activities Vocabulary",
+        title: "Daily Routines Vocabulary",
         type: "pdf",
-        url: "/materials/daily_activities.pdf"
+        url: require('../assets/file/routines_vocab.pdf')
+      },
+      {
+        title: "Daily Activities Conversation",
+        type: "link",
+        url: "https://oxfordlanguageclub.com/page/blog/daily-routines-in-english"
       }
     ],
-    video: "https://www.youtube.com/embed/example3"
+    video: "https://youtu.be/ecF1y2bI2T4?si=SIECQUiPQyeHw6uG"
   },
   unit4: {
-    title: "Unit 4: Food and Dining",
-    description: "Explore vocabulary and expressions related to food and dining experiences",
+    title: "Unit 4: Ordering Food",
+    description: "Explore vocabulary and expressions related to ordering food at a restaurant",
     materials: [
       {
-        title: "Food Vocabulary Guide",
+        title: "Food Vocabulary List",
         type: "pdf",
-        url: "/materials/food_vocab.pdf"
+        url: require('../assets/file/food_vocab.pdf')
       }
     ],
-    video: "https://www.youtube.com/embed/example4"
+    video: "https://youtu.be/bgfdqVmVjfk?si=_R8zCepMo_0OKEHV"
   },
   unit5: {
     title: "Unit 5: Travel and Transportation",
     description: "Learn how to navigate travel situations and use transportation",
     materials: [
       {
-        title: "Travel Expressions Guide",
+        title: "Transportation Vocabulary",
         type: "pdf",
-        url: "/materials/travel_guide.pdf"
+        url: require('../assets/file/transportation_vocab.pdf')
+      },
+      {
+        title: "Travel Expressions Guide",
+        type: "link",
+        url: "https://www.novakidschool.com/blog/english-for-travel-useful-phrases/"
       }
     ],
-    video: "https://www.youtube.com/embed/example5"
+    video: "https://youtu.be/3MUWJ7JbNtw?si=RUDKwcDp6hERXJ6A"
   }
 };
 
@@ -92,56 +98,173 @@ const UnitButton = ({ title, onClick, isActive }) => (
   </TouchableOpacity>
 );
 
-const DownloadButton = ({ title, url }) => (
-  <TouchableOpacity 
-    onPress={() => Linking.openURL(url)}
-    style={styles.downloadButton}
-  >
-    <Text style={styles.downloadButtonText}>📄 {title}</Text>
-  </TouchableOpacity>
-);
+// const DownloadButton = ({ title, url, type }) => (
+//   <TouchableOpacity 
+//     onPress={() => Linking.openURL(url)}
+//     style={styles.downloadButton}
+//   >
+//     <Text style={styles.downloadButtonText}>📄 {title}</Text>
+//   </TouchableOpacity>
+// );
 
-const MaterialContent = ({ unit }) => {
-  const handleVideoPress = () => {
-    if (unit.video) {
-      const videoId = unit.video.split('/').pop().split('?')[0];
-      const youtubeUrl = `https://youtube.com/watch?v=${videoId}`;
-      Linking.openURL(youtubeUrl);
+const DownloadButton = ({ title, url, type }) => {
+  const router = useRouter();
+  
+  const handlePress = () => {
+    if (type === "link") {
+      // Untuk link eksternal, gunakan Linking.openURL
+      Linking.openURL(url);
+    } else if (type === "pdf") {
+      // Untuk file PDF lokal. Navigate ke PDF viewer dengan source dan title
+      console.log("Opening local PDF file");
+      // Di sini bisa menambahkan navigasi ke PDF viewer
+      navigation.navigate('PDFViewer', { 
+        pdfSource: url,
+        title: title
+       });
     }
   };
 
   return (
-    <View style={styles.materialContent}>
-      <Text style={styles.unitTitle}>{unit.title}</Text>
-      <Text style={styles.unitDescription}>{unit.description}</Text>
-      
-      <View style={styles.materialsSection}>
-        <Text style={styles.sectionTitle}>Study Materials:</Text>
-        <View style={styles.materialsGrid}>
-          {unit.materials.map((material, index) => (
-            <DownloadButton 
-              key={index}
-              title={material.title}
-              url={material.url}
-            />
-          ))}
-        </View>
-      </View>
-
-      <View style={styles.videoSection}>
-        <Text style={styles.sectionTitle}>Video Material:</Text>
-        <TouchableOpacity 
-          onPress={handleVideoPress}
-          style={styles.videoPlaceholder}
-        >
-          <Text style={styles.videoText}>Click to Watch Video</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <TouchableOpacity 
+      onPress={handlePress}
+      style={styles.downloadButton}
+    >
+      <Text style={styles.downloadButtonText}>
+        {type === "pdf" ? "📄" : "🔗"} {title}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
-export default function Materials() {
+// const MaterialContent = ({ unit }) => {
+//   const handleVideoPress = () => {
+//     if (unit.video) {
+//       const videoId = unit.video.split('/').pop().split('?')[0];
+//       const youtubeUrl = `https://youtube.com/watch?v=${videoId}`;
+//       Linking.openURL(youtubeUrl);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.materialContent}>
+//       <Text style={styles.unitTitle}>{unit.title}</Text>
+//       <Text style={styles.unitDescription}>{unit.description}</Text>
+      
+//       <View style={styles.materialsSection}>
+//         <Text style={styles.sectionTitle}>Study Materials:</Text>
+//         <View style={styles.materialsGrid}>
+//           {unit.materials.map((material, index) => (
+//             <DownloadButton 
+//               key={index}
+//               title={material.title}
+//               url={material.url}
+//             />
+//           ))}
+//         </View>
+//       </View>
+
+//       <View style={styles.videoSection}>
+//         <Text style={styles.sectionTitle}>Video Material:</Text>
+//         <TouchableOpacity 
+//           onPress={handleVideoPress}
+//           style={styles.videoPlaceholder}
+//         >
+//           <Text style={styles.videoText}>Click to Watch Video</Text>
+//         </TouchableOpacity>
+//       </View>
+//     </View>
+//   );
+// };
+
+// export default function Materials({ navigation }) {
+//   const [selectedUnit, setSelectedUnit] = useState(null);
+
+//   const renderUnitsList = () => (
+//     <View style={styles.unitList}>
+//       <Text style={styles.mainTitle}>Select a Unit</Text>
+//       {Object.keys(unitsData).map((unitKey) => (
+//         <UnitButton
+//           key={unitKey}
+//           title={unitsData[unitKey].title}
+//           onClick={() => setSelectedUnit(unitKey)}
+//           isActive={selectedUnit === unitKey}
+//         />
+//       ))}
+//     </View>
+//   );
+
+//   const renderUnitContent = () => (
+//     <View style={styles.contentContainer}>
+//       <TouchableOpacity
+//         onPress={() => setSelectedUnit(null)}
+//         style={styles.backButton}
+//       >
+//         <Text style={styles.backButtonText}>← Back to Units</Text>
+//       </TouchableOpacity>
+//       <MaterialContent unit={unitsData[selectedUnit]} navigation={navigation} />
+//     </View>
+//   );
+
+//   return (
+//     <ScrollView style={styles.container}>
+//       <View style={styles.header}>
+//         <Image 
+//           source={require('../../assets/images/adaptive_icon.png')} 
+//           style={styles.logo}
+//           resizeMode="contain"
+//         />
+//         <Text style={styles.headerText}>G-Lingua</Text>
+//       </View>
+      
+//       {selectedUnit ? renderUnitContent() : renderUnitsList()}
+//     </ScrollView>
+//   );
+// }
+
+// const MaterialContent = ({ unit, navigation }) => {
+//   const handleVideoPress = () => {
+//     if (unit.video) {
+//       const videoId = unit.video.split('/').pop().split('?')[0];
+//       const youtubeUrl = `https://youtube.com/watch?v=${videoId}`;
+//       Linking.openURL(youtubeUrl);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.materialContent}>
+//       <Text style={styles.unitTitle}>{unit.title}</Text>
+//       <Text style={styles.unitDescription}>{unit.description}</Text>
+      
+//       <View style={styles.materialsSection}>
+//         <Text style={styles.sectionTitle}>Study Materials:</Text>
+//         <View style={styles.materialsGrid}>
+//           {unit.materials.map((material, index) => (
+//             <DownloadButton 
+//               key={index}
+//               title={material.title}
+//               url={material.url}
+//               type={material.type}
+//               navigation={navigation}
+//             />
+//           ))}
+//         </View>
+//       </View>
+
+//       <View style={styles.videoSection}>
+//         <Text style={styles.sectionTitle}>Video Material:</Text>
+//         <TouchableOpacity 
+//           onPress={handleVideoPress}
+//           style={styles.videoPlaceholder}
+//         >
+//           <Text style={styles.videoText}>Click to Watch Video</Text>
+//         </TouchableOpacity>
+//       </View>
+//     </View>
+//   );
+// };
+
+export default function Materials({ navigation }) {
   const [selectedUnit, setSelectedUnit] = useState(null);
 
   const renderUnitsList = () => (
@@ -166,7 +289,7 @@ export default function Materials() {
       >
         <Text style={styles.backButtonText}>← Back to Units</Text>
       </TouchableOpacity>
-      <MaterialContent unit={unitsData[selectedUnit]} />
+      <MaterialContent unit={unitsData[selectedUnit]} navigation={navigation} />
     </View>
   );
 
@@ -185,6 +308,48 @@ export default function Materials() {
     </ScrollView>
   );
 }
+
+const MaterialContent = ({ unit, navigation }) => {
+  const handleVideoPress = () => {
+    if (unit.video) {
+      const videoId = unit.video.split('/').pop().split('?')[0];
+      const youtubeUrl = `https://youtube.com/watch?v=${videoId}`;
+      Linking.openURL(youtubeUrl);
+    }
+  };
+
+  return (
+    <View style={styles.materialContent}>
+      <Text style={styles.unitTitle}>{unit.title}</Text>
+      <Text style={styles.unitDescription}>{unit.description}</Text>
+      
+      <View style={styles.materialsSection}>
+        <Text style={styles.sectionTitle}>Study Materials:</Text>
+        <View style={styles.materialsGrid}>
+          {unit.materials.map((material, index) => (
+            <DownloadButton 
+              key={index}
+              title={material.title}
+              url={material.url}
+              type={material.type}
+              navigation={navigation}
+            />
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.videoSection}>
+        <Text style={styles.sectionTitle}>Video Material:</Text>
+        <TouchableOpacity 
+          onPress={handleVideoPress}
+          style={styles.videoPlaceholder}
+        >
+          <Text style={styles.videoText}>Click to Watch Video</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
