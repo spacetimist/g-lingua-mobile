@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Linking } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const exercisesData = {
   unit1: {
@@ -121,19 +122,16 @@ const UnitContent = ({ unit }) => (
 export default function Exercises() {
   const [selectedUnit, setSelectedUnit] = useState(null);
 
+  
   const renderUnitsList = () => (
     <View style={styles.unitList}>
       <Text style={styles.mainTitle}>Select a Unit</Text>
       {Object.keys(exercisesData).map((unitKey) => (
-        <TouchableOpacity
+        <UnitButton
           key={unitKey}
-          onPress={() => setSelectedUnit(unitKey)}
-          style={styles.unitButton}
-        >
-          <Text style={styles.unitButtonText}>
-            {exercisesData[unitKey].title}
-          </Text>
-        </TouchableOpacity>
+          title={exercisesData[unitKey].title}
+          onClick={() => setSelectedUnit(unitKey)}
+        />
       ))}
     </View>
   );
@@ -164,6 +162,79 @@ export default function Exercises() {
     </ScrollView>
   );
 }
+
+const UnitButton = ({ title, onClick }) => {
+  const handlePress = async () => {
+    onClick(); // Panggil onClick original
+    
+    const unitNumber = title.match(/Unit (\d+):/)?.[1];
+    if (unitNumber) {
+      const unitKey = `unit${unitNumber}`;
+      try {
+        // Get existing progress data
+        const savedProgress = await AsyncStorage.getItem('userProgress') || '[]';
+        let progressData = JSON.parse(savedProgress);
+        
+        // Update atau tambah progress untuk unit ini
+        const unitProgress = {
+          title: title.split(': ')[1], // Ambil nama unit
+          progress: 100, // 100% karena sudah exercise
+          lastAccessed: Date.now(),
+          materials: true,
+          exercises: true
+        };
+        
+        // Cari unit yang sudah ada
+        const existingIndex = progressData.findIndex(item => 
+          item.title === unitProgress.title
+        );
+        
+        if (existingIndex >= 0) {
+          // Update existing unit
+          progressData[existingIndex] = {
+            ...progressData[existingIndex],
+            ...unitProgress
+          };
+        } else {
+          // Tambah unit baru
+          progressData.push(unitProgress);
+        }
+        
+        // Simpan progress
+        await AsyncStorage.setItem('userProgress', JSON.stringify(progressData));
+        
+        // Update overall progress
+        const totalUnits = Object.keys(exercisesData).length;
+        const completedProgress = progressData.reduce((sum, unit) => sum + unit.progress, 0);
+        const overallProgress = Math.round(completedProgress / totalUnits);
+        await AsyncStorage.setItem('overallProgress', overallProgress.toString());
+      } catch (error) {
+        console.error('Error updating progress:', error);
+      }
+    }
+  };
+
+  return (
+    <TouchableOpacity onPress={handlePress} style={styles.unitButton}>
+      <Text style={styles.unitButtonText}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
+
+// Update the renderUnitsList function in materials.jsx
+const renderUnitsList = () => (
+  <View style={styles.unitList}>
+    <Text style={styles.mainTitle}>Select a Unit</Text>
+    {Object.entries(unitsData).map(([unitKey, unit]) => (
+      <UnitButton
+        key={unitKey}
+        title={unit.title}
+        onClick={() => setSelectedUnit(unitKey)}
+        isActive={selectedUnit === unitKey}
+      />
+    ))}
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {

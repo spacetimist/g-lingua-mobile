@@ -1,40 +1,96 @@
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from "react-native";
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from "expo-router";
+import { useFocusEffect } from '@react-navigation/native';
+
+
+// Helper function to get unit icon (which was missing in the original code)
+const getUnitIcon = (title) => {
+  // You might want to customize this based on your unit titles
+  return "book-outline";
+};
 
 export default function Home() {
   const [username, setUsername] = useState("");
+  const [recentUnits, setRecentUnits] = useState([]);
+  const [overallProgress, setOverallProgress] = useState(0);
+  const [unitsStarted, setUnitsStarted] = useState(0);
   const router = useRouter();
 
-  useEffect(() => {
-    loadUsername();
-  }, []);
+  // Gunakan useFocusEffect untuk update data setiap kali halaman difokuskan
+  useFocusEffect(
+    React.useCallback(() => {
+      loadUserData();
+    }, [])
+  );
 
-  const loadUsername = async () => {
+  const loadUserData = async () => {
     try {
+      // Load username
       const currentUser = await AsyncStorage.getItem('currentUser');
       if (currentUser) {
         setUsername(currentUser);
       }
+
+      // Load progress data
+      const progressData = await AsyncStorage.getItem('userProgress');
+      if (progressData) {
+        const progress = JSON.parse(progressData);
+        
+        // Group units by their base name (removing ' - Material' or ' - Exercise')
+        const groupedUnits = progress.reduce((acc, unit) => {
+          // Remove ' - Material' or ' - Exercise' from the unit title
+          const baseTitle = unit.title.replace(' - Material', '').replace(' - Exercise', '');
+          
+          if (!acc[baseTitle]) {
+            acc[baseTitle] = { 
+              title: baseTitle, 
+              progress: 0,
+              lastAccessed: 0
+            };
+          }
+          
+          // Accumulate progress for each base unit
+          acc[baseTitle].progress += unit.progress;
+          acc[baseTitle].lastAccessed = Math.max(acc[baseTitle].lastAccessed, unit.lastAccessed);
+          
+          return acc;
+        }, {});
+
+        // Convert grouped units to array
+        const processedUnits = Object.values(groupedUnits);
+        
+        // Filter units with progress
+        const startedUnits = processedUnits.filter(unit => unit.progress > 0);
+        
+        // Update units started
+        setUnitsStarted(startedUnits.length);
+        
+        // Calculate & update overall progress
+        if (startedUnits.length > 0) {
+          const totalProgress = startedUnits.reduce((sum, unit) => sum + unit.progress, 0);
+          setOverallProgress(Math.round(totalProgress / startedUnits.length));
+        }
+        
+        // Update recent units (last 2 accessed)
+        const sortedUnits = [...startedUnits].sort((a, b) => 
+          b.lastAccessed - a.lastAccessed
+        ).slice(0, 2);
+
+        const mappedUnits = sortedUnits.map(unit => ({
+          title: unit.title,
+          progress: unit.progress,
+          icon: getUnitIcon(unit.title)
+        }));
+
+        setRecentUnits(mappedUnits);
+      }
     } catch (error) {
-      console.error('Error loading username:', error);
+      console.error('Error loading user data:', error);
     }
   };
-
-  const recentUnits = [
-    {
-      title: "Weather",
-      progress: 60,
-      icon: "cloud",
-    },
-    {
-      title: "Hobbies",
-      progress: 30,
-      icon: "basketball",
-    },
-  ];
 
   return (
     <View style={styles.container}>
@@ -56,12 +112,12 @@ export default function Home() {
           <Text style={styles.usernameText}>{username}!</Text>
           <View style={styles.statsContainer}>
             <View style={styles.statItem}>
-              <Text style={styles.statNumber}>2</Text>
+              <Text style={styles.statNumber}>{unitsStarted}</Text>
               <Text style={styles.statLabel}>Units{'\n'}Started</Text>
             </View>
             <View style={styles.statDivider} />
             <View style={styles.statItem}>
-              <Text style={styles.statNumber}>45%</Text>
+              <Text style={styles.statNumber}>{overallProgress}%</Text>
               <Text style={styles.statLabel}>Overall{'\n'}Progress</Text>
             </View>
           </View>
@@ -70,22 +126,26 @@ export default function Home() {
         {/* Recent Progress */}
         <View style={styles.unitContent}>
           <Text style={styles.sectionTitle}>Recent Progress</Text>
-          {recentUnits.map((unit, index) => (
-            <View key={index} style={styles.progressItem}>
-              <View style={styles.progressIcon}>
-                <Ionicons name={unit.icon} size={24} color="#99856F" />
-              </View>
-              <View style={styles.progressInfo}>
-                <Text style={styles.progressTitle}>{unit.title}</Text>
-                <View style={styles.progressBarContainer}>
-                  <View 
-                    style={[styles.progressBar, { width: `${unit.progress}%` }]} 
-                  />
+          {recentUnits.length > 0 ? (
+            recentUnits.map((unit, index) => (
+              <View key={index} style={styles.progressItem}>
+                <View style={styles.progressIcon}>
+                  <Ionicons name={unit.icon} size={24} color="#99856F" />
                 </View>
+                <View style={styles.progressInfo}>
+                  <Text style={styles.progressTitle}>{unit.title}</Text>
+                  <View style={styles.progressBarContainer}>
+                    <View 
+                      style={[styles.progressBar, { width: `${unit.progress}%` }]} 
+                    />
+                  </View>
+                </View>
+                <Text style={styles.progressPercent}>{unit.progress}%</Text>
               </View>
-              <Text style={styles.progressPercent}>{unit.progress}%</Text>
-            </View>
-          ))}
+            ))
+          ) : (
+            <Text style={styles.noProgressText}>No units started yet</Text>
+          )}
         </View>
 
         {/* Quick Actions */}
@@ -248,5 +308,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     fontWeight: 'bold',
+  },
+  noProgressText: {
+    textAlign: 'center',
+    color: '#754E1A',
+    fontSize: 16,
+    marginVertical: 10,
   },
 });

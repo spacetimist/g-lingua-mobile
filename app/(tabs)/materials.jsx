@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Linking } from 'react-native';
 import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Mock data for all units and their materials
 const unitsData = {
@@ -69,22 +70,73 @@ const unitsData = {
   }
 };
 
-const UnitButton = ({ title, onClick, isActive }) => (
-  <TouchableOpacity 
-    onPress={onClick}
-    style={[
-      styles.unitButton,
-      isActive && styles.unitButtonActive
-    ]}
-  >
-    <Text style={[
-      styles.unitButtonText,
-      isActive && styles.unitButtonTextActive
-    ]}>
-      {title}
-    </Text>
-  </TouchableOpacity>
-);
+const UnitButton = ({ title, onClick, isActive }) => {
+  const handlePress = async () => {
+    // Call the original onClick handler
+    onClick();
+    
+    // Extract unit key from title (e.g., "Unit 1: Weather" -> "unit1")
+    const unitNumber = title.match(/Unit (\d+):/)?.[1];
+    if (unitNumber) {
+      const unitKey = `unit${unitNumber}`;
+      try {
+        // Get existing progress data
+        const savedProgress = await AsyncStorage.getItem('userProgress') || '[]';
+        let progressData = JSON.parse(savedProgress);
+        
+        // Update atau tambah progress untuk unit ini
+        const unitProgress = {
+          title: title.split(': ')[1], // Ambil nama unit (Weather, Hobbies, dll)
+          progress: 50, // 50% karena baru materials
+          lastAccessed: Date.now(),
+          materials: true,
+          exercises: false
+        };
+        
+        // Cari unit yang sudah ada
+        const existingIndex = progressData.findIndex(item => 
+          item.title === unitProgress.title
+        );
+        
+        if (existingIndex >= 0) {
+          // Update existing unit
+          progressData[existingIndex] = {
+            ...progressData[existingIndex],
+            ...unitProgress,
+            // Jika exercise sudah selesai, progress tetap 100%
+            progress: progressData[existingIndex].exercises ? 100 : 50
+          };
+        } else {
+          // Tambah unit baru
+          progressData.push(unitProgress);
+        }
+        
+        // Simpan progress
+        await AsyncStorage.setItem('userProgress', JSON.stringify(progressData));
+        
+        // Update overall progress di home
+        const totalUnits = Object.keys(unitsData).length;
+        const completedProgress = progressData.reduce((sum, unit) => sum + unit.progress, 0);
+        const overallProgress = Math.round(completedProgress / totalUnits);
+        await AsyncStorage.setItem('overallProgress', overallProgress.toString());
+      } catch (error) {
+        console.error('Error updating progress:', error);
+      }
+    }
+  };
+
+  return (
+    <TouchableOpacity 
+      onPress={handlePress}
+      style={[styles.unitButton, isActive && styles.unitButtonActive]}
+    >
+      <Text style={[styles.unitButtonText, isActive && styles.unitButtonTextActive]}>
+        {title}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
 
 // const DownloadButton = ({ title, url, type }) => (
 //   <TouchableOpacity 
@@ -253,7 +305,10 @@ const DownloadButton = ({ title, url, type }) => {
 //   );
 // };
 
-const MaterialContent = ({ unit }) => {
+const MaterialContent = ({ unit, unitKey }) => {
+  useEffect(() => {
+    updateProgress(unitKey);
+  }, [unitKey]);
   const handleVideoPress = () => {
     if (unit.video) {
       const videoId = unit.video.split('/').pop().split('?')[0];
@@ -326,6 +381,7 @@ export default function Materials({ navigation }) {
       {unitsData[selectedUnit] && (
         <MaterialContent 
           unit={unitsData[selectedUnit]} 
+          unitKey={selectedUnit}
           navigation={navigation} 
         />
       )}
@@ -347,6 +403,35 @@ export default function Materials({ navigation }) {
     </ScrollView>
   );
 }
+
+const updateProgress = async (unitKey) => {
+  try {
+    // Get existing progress
+    const progressString = await AsyncStorage.getItem('unitProgress');
+    let progress = progressString ? JSON.parse(progressString) : {};
+    
+    // Mark unit as started
+    if (!progress[unitKey]) {
+      progress[unitKey] = {
+        started: true,
+        materials: true,
+        exercises: progress[unitKey]?.exercises || false,
+        lastAccessed: new Date().toISOString()
+      };
+      
+      // Calculate overall progress
+      const totalUnits = Object.keys(unitsData).length;
+      const startedUnits = Object.keys(progress).length;
+      const overallProgress = Math.round((startedUnits / totalUnits) * 100);
+      
+      // Save progress
+      await AsyncStorage.setItem('unitProgress', JSON.stringify(progress));
+      await AsyncStorage.setItem('overallProgress', JSON.stringify(overallProgress));
+    }
+  } catch (error) {
+    console.error('Error updating progress:', error);
+  }
+};
 
 const styles = StyleSheet.create({
   container: {

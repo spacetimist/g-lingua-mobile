@@ -1,29 +1,27 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, Alert } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, Alert, ScrollView } from "react-native";
 import { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 
 export default function Profile() {
-  const router = useRouter();
   const [userData, setUserData] = useState({
     username: "",
     password: "",
   });
+  const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  
-  // Add refresh trigger
-  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
   useEffect(() => {
     loadUserData();
-  }, [refreshTrigger]); // Add refreshTrigger to dependencies
+  }, []);
 
   const loadUserData = async () => {
     try {
       const username = await AsyncStorage.getItem('currentUser');
       const storedData = await AsyncStorage.getItem('userCredentials');
+      
       if (storedData && username) {
         const users = JSON.parse(storedData);
         const currentUser = users.find(u => u.storedUsername === username);
@@ -35,18 +33,23 @@ export default function Profile() {
         }
       }
     } catch (error) {
-      console.error('Error loading user data:', error);
       Alert.alert("Error", "Failed to load user data");
     }
   };
 
   const handlePasswordChange = async () => {
-    if (newPassword !== confirmPassword) {
-      Alert.alert("Error", "Passwords do not match!");
+    if (!oldPassword || !newPassword || !confirmPassword) {
+      Alert.alert("Error", "Please fill all password fields");
       return;
     }
-    if (newPassword.length < 6) {
-      Alert.alert("Error", "Password must be at least 6 characters!");
+
+    if (oldPassword !== userData.password) {
+      Alert.alert("Error", "Current password is incorrect");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      Alert.alert("Error", "New passwords don't match");
       return;
     }
 
@@ -59,59 +62,26 @@ export default function Profile() {
             ? { ...user, storedPassword: newPassword }
             : user
         );
+
         await AsyncStorage.setItem('userCredentials', JSON.stringify(updatedUsers));
+        Alert.alert("Success", "Password updated successfully");
         
-        // Update local state
-        setUserData(prev => ({
-          ...prev,
-          password: newPassword
-        }));
-        
-        // Trigger refresh
-        setRefreshTrigger(prev => prev + 1);
-        
-        Alert.alert("Success", "Password updated successfully!");
+        setOldPassword("");
         setNewPassword("");
         setConfirmPassword("");
+        setUserData(prev => ({...prev, password: newPassword}));
       }
     } catch (error) {
-      console.error('Error updating password:', error);
       Alert.alert("Error", "Failed to update password");
     }
   };
 
-
-  const handleLogout = () => {  // Hapus async di sini
-    Alert.alert(
-      "Logout",
-      "Are you sure you want to logout?",
-      [
-        {
-          text: "Cancel",
-          style: "cancel"
-        },
-        {
-          text: "Logout",
-          onPress: () => {  // Pisahkan logika logout ke fungsi terpisah
-            logoutUser();
-          }
-        }
-      ]
-    );
-  };
-  const logoutUser = async () => {
+  const handleLogout = async () => {
     try {
-      console.log('Starting logout process...');
       await AsyncStorage.removeItem('currentUser');
-      console.log('AsyncStorage cleared');
-      
-      setUserData({ username: "", password: "" });
-      console.log('State reset');
-      
-      console.log('Navigating...');
-      router.push("/");
+      router.replace('/');
     } catch (error) {
-      console.error('Logout error:', error);
+      Alert.alert("Error", "Failed to logout");
     }
   };
   
@@ -122,25 +92,39 @@ export default function Profile() {
           source={require('../../assets/images/adaptive_icon.png')} 
           style={styles.logo}
         />
-        <Text style={styles.headerText}>Profile</Text>
+        <Text style={styles.headerText}>G-Lingua - Profile</Text>
       </View>
 
-      <View style={styles.contentContainer}>
-        <View style={styles.unitContent}>
-          <Text style={styles.sectionTitle}>Account Information</Text>
-          <View style={styles.inputContainer}>
+      <ScrollView 
+        contentContainerStyle={styles.contentContainer}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Account Information</Text>
+          <View style={styles.inputGroup}>
             <Text style={styles.label}>Username</Text>
             <TextInput
-              style={[styles.input, styles.inputDisabled]}
+              style={[styles.input, styles.disabledInput]}
               value={userData.username}
               editable={false}
             />
           </View>
         </View>
 
-        <View style={styles.unitContent}>
-          <Text style={styles.sectionTitle}>Change Password</Text>
-          <View style={styles.inputContainer}>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Change Password</Text>
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Current Password</Text>
+            <TextInput
+              style={styles.input}
+              value={oldPassword}
+              onChangeText={setOldPassword}
+              secureTextEntry
+              placeholder="Enter current password"
+            />
+          </View>
+
+          <View style={styles.inputGroup}>
             <Text style={styles.label}>New Password</Text>
             <TextInput
               style={styles.input}
@@ -151,7 +135,7 @@ export default function Profile() {
             />
           </View>
 
-          <View style={styles.inputContainer}>
+          <View style={styles.inputGroup}>
             <Text style={styles.label}>Confirm Password</Text>
             <TextInput
               style={styles.input}
@@ -163,23 +147,23 @@ export default function Profile() {
           </View>
 
           <TouchableOpacity 
-            style={styles.exerciseButton}
             onPress={handlePasswordChange}
+            style={styles.button}
           >
-            <Text style={styles.exerciseType}>Update Password</Text>
+            <Text style={styles.buttonText}>Update Password</Text>
           </TouchableOpacity>
         </View>
 
         <TouchableOpacity 
-          style={[styles.exerciseButton, styles.logoutButton]}
           onPress={handleLogout}
+          style={[styles.button, styles.logoutButton]}
         >
           <View style={styles.logoutContent}>
-            <Ionicons name="log-out-outline" size={24} color="#FFF" style={styles.logoutIcon} />
-            <Text style={styles.exerciseType}>Logout</Text>
+            <Ionicons name="log-out-outline" size={24} color="#FFF" />
+            <Text style={styles.buttonText}>Logout</Text>
           </View>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -191,81 +175,74 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#99856f',
+    padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 15,
     paddingTop: 20,
   },
   logo: {
     width: 80,
     height: 40,
-    marginRight: 1,
+    marginRight: 8,
   },
   headerText: {
-    color: 'white',
     fontSize: 20,
+    color: '#fff',
     fontWeight: 'bold',
   },
   contentContainer: {
-    padding: 15,
+    padding: 16,
+    paddingBottom: 80,
   },
-  unitContent: {
-    backgroundColor: 'white',
-    borderRadius: 15,
-    padding: 12,
-    marginBottom: 15,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    elevation: 2,
   },
-  sectionTitle: {
+  cardTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 15,
+    marginBottom: 16,
     color: '#543A14',
   },
-  inputContainer: {
-    marginBottom: 15,
+  inputGroup: {
+    marginBottom: 16,
   },
   label: {
     fontSize: 14,
-    color: '#754E1A',
-    marginBottom: 5,
+    color: '#666',
+    marginBottom: 8,
   },
   input: {
     backgroundColor: '#f5f5f5',
     borderRadius: 8,
-    padding: 13,
+    padding: 12,
     fontSize: 16,
-    color: '#333',
   },
-  inputDisabled: {
-    backgroundColor: '#E8E8E8',
+  disabledInput: {
+    backgroundColor: '#e0e0e0',
     color: '#666',
   },
-  exerciseButton: {
+  button: {
     backgroundColor: '#99856f',
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 10,
+    borderRadius: 8,
+    padding: 12,
+    alignItems: 'center',
   },
-  exerciseType: {
-    color: 'white',
-    fontWeight: 'bold',
+  buttonText: {
+    color: '#fff',
     fontSize: 16,
+    fontWeight: 'bold',
   },
   logoutButton: {
     backgroundColor: '#C17767',
-    marginTop: 0.01,
   },
   logoutContent: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  logoutIcon: {
-    marginRight: 8,
+    gap: 8,
   },
 });

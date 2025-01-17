@@ -71,12 +71,12 @@ export default function Auth() {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
+        <Text style={styles.logoText}>Welcome to G-Lingua</Text>
         <Image 
           source={require("../assets/images/adaptive_icon.png")} 
           style={styles.logo}
           resizeMode="contain"
         />
-        <Text style={styles.logoText}>G-Lingua</Text>
       </View>
 
       <View style={styles.formContainer}>
