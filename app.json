@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "G-Lingua",
+    "slug": "g-lingua",
+    "version": "1.0.0",
+    "sdkVersion": "49.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/adaptive_icon.png",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#CEEEF1"
+    },
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    
+    "ios": {
+      "supportsTablet": true
+    },
+    "backgroundColor": "#F0E3CA",
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive_icon.png",
+        "backgroundColor": "#F0E3CA"
+      },
+      "package": "com.ralyn.glingua"
+    },
+    "web": {
+      "bundler": "metro",
+     
+      "favicon": "./assets/images/adaptive_icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+           "image": "./assets/images/splashscreen_icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#CEEEF1"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "8af31a88-eefd-4d83-bb53-00506e14efde"
+      }
+    },
+    "owner": "yasrazhaf"
+  }
+}
