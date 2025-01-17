@@ -12,10 +12,10 @@ const Lesson = () => {
   const [dropZones, setDropZones] = useState([]);
 
   const questions = [
-    { text: '"Cuacanya indah"', words: ['The', 'weather', 'is', 'lovely'], answer: ['The', 'weather', 'is', 'lovely'] },
-    { text: '"Aku suka hari-hari cerah"', words: ['sunny', 'days', 'like', 'I'], answer: ['I', 'like', 'sunny', 'days'] },
-    { text: '"Hari ini hujan"', words: ['is', 'Today', 'rainy'], answer: ['Today', 'is', 'rainy'] },
-    { text: '"Di luar sedang panas"', words: ['hot', "It's", 'outside'], answer: ["It's", 'hot', 'outside'] }
+      { text: '"Saya suka membaca buku"', words: ['reading', 'I', 'books', 'like'], answer: ['I', 'like', 'reading', 'books'] },
+      { text: '"Dia bermain gitar setiap hari"', words: ['plays', 'every', 'day', 'guitar', 'He'], answer: ['He', 'plays', 'guitar', 'every', 'day'] },
+      { text: '"Kami sering menonton film"', words: ['movies', 'often', 'watch', 'We'], answer: ['We', 'often', 'watch', 'movies'] },
+      { text: '"Dia suka menggambar di waktu luang"', words: ['draw', 'in', 'likes', 'spare', 'to', 'She', 'time'], answer: ['She', 'likes', 'to', 'draw', 'in', 'spare', 'time'] }
   ];
 
   const [progress, setProgress] = useState(

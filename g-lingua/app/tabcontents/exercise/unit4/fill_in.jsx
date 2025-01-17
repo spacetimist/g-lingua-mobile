@@ -12,11 +12,12 @@ const Lesson = () => {
   const [dropZones, setDropZones] = useState([]);
 
   const questions = [
-    { text: '"Cuacanya indah"', words: ['The', 'weather', 'is', 'lovely'], answer: ['The', 'weather', 'is', 'lovely'] },
-    { text: '"Aku suka hari-hari cerah"', words: ['sunny', 'days', 'like', 'I'], answer: ['I', 'like', 'sunny', 'days'] },
-    { text: '"Hari ini hujan"', words: ['is', 'Today', 'rainy'], answer: ['Today', 'is', 'rainy'] },
-    { text: '"Di luar sedang panas"', words: ['hot', "It's", 'outside'], answer: ["It's", 'hot', 'outside'] }
+      { text: '"Saya ingin memesan pizza"', words: ['order', 'want', 'pizza', 'I', 'to'], answer: ['I', 'want', 'to', 'order', 'pizza'] },
+      { text: '"Bisakah saya mendapatkan menu?"', words: ['Can', 'the', 'get', 'menu', 'I'], answer: ['Can', 'I', 'get', 'the', 'menu'] },
+      { text: '"Dia memesan segelas kopi"', words: ['orders', 'coffee', 'a', 'of', 'cup', 'He'], answer: ['He', 'orders', 'a', 'cup', 'of', 'coffee'] },
+      { text: '"Tolong tambah satu porsi kentang goreng"', words: ['add', 'french', 'one', 'fries', 'Please', 'more', 'portion'], answer: ['Please', 'add', 'one', 'more', 'portion', 'french', 'fries'] }
   ];
+
 
   const [progress, setProgress] = useState(
     (currentQuestionIndex / questions.length) * 100

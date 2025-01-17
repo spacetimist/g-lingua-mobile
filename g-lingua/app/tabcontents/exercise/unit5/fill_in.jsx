@@ -12,11 +12,12 @@ const Lesson = () => {
   const [dropZones, setDropZones] = useState([]);
 
   const questions = [
-    { text: '"Cuacanya indah"', words: ['The', 'weather', 'is', 'lovely'], answer: ['The', 'weather', 'is', 'lovely'] },
-    { text: '"Aku suka hari-hari cerah"', words: ['sunny', 'days', 'like', 'I'], answer: ['I', 'like', 'sunny', 'days'] },
-    { text: '"Hari ini hujan"', words: ['is', 'Today', 'rainy'], answer: ['Today', 'is', 'rainy'] },
-    { text: '"Di luar sedang panas"', words: ['hot', "It's", 'outside'], answer: ["It's", 'hot', 'outside'] }
+      { text: '"Saya naik bus setiap pagi"', words: ['every', 'take', 'I', 'the', 'bus', 'morning'], answer: ['I', 'take', 'the', 'bus', 'every', 'morning'] },
+      { text: '"Apakah ini stasiun kereta?"', words: ['train', 'station', 'this', 'the', 'Is'], answer: ['Is', 'this', 'the', 'train', 'station'] },
+      { text: '"Kami memesan taksi untuk pergi ke bandara"', words: ['airport', 'to', 'a', 'taxi', 'We', 'book', 'go'], answer: ['We', 'book', 'a', 'taxi', 'to', 'go', 'airport'] },
+      { text: '"Dia suka bepergian dengan kereta"', words: ['traveling', 'by', 'He', 'likes', 'train'], answer: ['He', 'likes', 'traveling', 'by', 'train'] }
   ];
+
 
   const [progress, setProgress] = useState(
     (currentQuestionIndex / questions.length) * 100

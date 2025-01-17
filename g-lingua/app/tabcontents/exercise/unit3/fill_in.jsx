@@ -12,11 +12,12 @@ const Lesson = () => {
   const [dropZones, setDropZones] = useState([]);
 
   const questions = [
-    { text: '"Cuacanya indah"', words: ['The', 'weather', 'is', 'lovely'], answer: ['The', 'weather', 'is', 'lovely'] },
-    { text: '"Aku suka hari-hari cerah"', words: ['sunny', 'days', 'like', 'I'], answer: ['I', 'like', 'sunny', 'days'] },
-    { text: '"Hari ini hujan"', words: ['is', 'Today', 'rainy'], answer: ['Today', 'is', 'rainy'] },
-    { text: '"Di luar sedang panas"', words: ['hot', "It's", 'outside'], answer: ["It's", 'hot', 'outside'] }
+      { text: '"Saya bangun pagi setiap hari"', words: ['wake', 'up', 'every', 'I', 'morning', 'day'], answer: ['I', 'wake', 'up', 'every', 'morning'] },
+      { text: '"Dia selalu sarapan sebelum bekerja"', words: ['before', 'always', 'He', 'breakfast', 'work', 'has'], answer: ['He', 'always', 'has', 'breakfast', 'before', 'work'] },
+      { text: '"Kami pergi ke kantor jam 8"', words: ['at', 'go', 'We', 'to', 'office', '8'], answer: ['We', 'go', 'to', 'office', 'at', '8'] },
+      { text: '"Mereka tidur pukul 10 malam"', words: ['10', 'They', 'at', 'go', 'to', 'bed', 'p.m.'], answer: ['They', 'go', 'to', 'bed', 'at', '10', 'p.m.'] }
   ];
+
 
   const [progress, setProgress] = useState(
     (currentQuestionIndex / questions.length) * 100

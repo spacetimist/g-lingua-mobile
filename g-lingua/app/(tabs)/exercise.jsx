@@ -8,22 +8,81 @@ const exercisesData = {
     description: "Practice your understanding of weather-related vocabulary and expressions.",
     exercises: [
       {
-        type: "Listen to the Audio",
-        description: "Type the sentence you hear.",
-        url: "/tabcontents/exercise/unit1/listening"
-      },
-      {
         type: "Fill in the Blanks",
         description: "Complete the sentences with the correct words.",
         url: "/tabcontents/exercise/unit1/fill_in"
       },
       {
-        type: "True or False",
-        description: "Determine whether the given statements are true or false.",
-        url: "/tabcontents/exercise/unit1/true_or_false"
-      }
+        type: "Listen to the Audio",
+        description: "Type the sentence you hear.",
+        url: "/tabcontents/exercise/unit1/listening"
+      },
     ]
   },
+  unit2: {
+      title: "Unit 2: Hobbies and Free Time Activities",
+      description: "Practice your understanding of daily vocabulary and expressions.",
+      exercises: [
+        {
+          type: "Listen to the Audio",
+          description: "Type the sentence you hear.",
+          url: "/tabcontents/exercise/unit2/listening"
+        },
+        {
+          type: "Fill in the Blanks",
+          description: "Complete the sentences with the correct words.",
+          url: "/tabcontents/exercise/unit2/fill_in"
+        }
+      ]
+    },
+   unit3: {
+         title: "Unit 3: Daily Routines",
+         description: "Practice your understanding of daily vocabulary and expressions.",
+         exercises: [
+           {
+             type: "Listen to the Audio",
+             description: "Type the sentence you hear.",
+             url: "/tabcontents/exercise/unit3/listening"
+           },
+           {
+             type: "Fill in the Blanks",
+             description: "Complete the sentences with the correct words.",
+             url: "/tabcontents/exercise/unit3/fill_in"
+           }
+         ]
+       },
+      unit4: {
+               title: "Unit 4: Ordering Food",
+               description: "Practice your understanding of vocabulary and expressions when ordering food.",
+               exercises: [
+                 {
+                   type: "Listen to the Audio",
+                   description: "Type the sentence you hear.",
+                   url: "/tabcontents/exercise/unit4/listening"
+                 },
+                 {
+                   type: "Fill in the Blanks",
+                   description: "Complete the sentences with the correct words.",
+                   url: "/tabcontents/exercise/unit4/fill_in"
+                 }
+               ]
+             },
+      unit5: {
+               title: "Unit 5: Travel and Transportation",
+               description: "Practice your understanding vocabulary and expressions when travelling.",
+               exercises: [
+                 {
+                   type: "Listen to the Audio",
+                   description: "Type the sentence you hear.",
+                   url: "/tabcontents/exercise/unit5/listening"
+                 },
+                 {
+                   type: "Fill in the Blanks",
+                   description: "Complete the sentences with the correct words.",
+                   url: "/tabcontents/exercise/unit5/fill_in"
+                 }
+               ]
+             },
   // Tambahkan unit lainnya...
 };
 
