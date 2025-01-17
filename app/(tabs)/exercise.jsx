@@ -156,9 +156,9 @@ export default function Exercises() {
         <Image
           source={require('../../assets/images/adaptive_icon.png')}
           style={styles.logo}
-          resizeMode="contain"
+          //resizeMode="contain"
         />
-        <Text style={styles.headerText}>G-Lingua Exercises</Text>
+        <Text style={styles.headerText}>G-Lingua - Exercise</Text>
       </View>
       {selectedUnit ? renderUnitContent() : renderUnitsList()}
     </ScrollView>
@@ -178,9 +178,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   logo: {
-    width: 40,
+    width: 80,
     height: 40,
-    marginRight: 10,
+    marginRight: 1,
   },
   headerText: {
     color: 'white',

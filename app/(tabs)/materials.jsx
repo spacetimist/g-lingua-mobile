@@ -8,11 +8,7 @@ const unitsData = {
     title: "Unit 1: Weather",
     description: "Learn how to discuss weather conditions and make weather-related conversations in English",
     materials: [
-      {
-        title: "Weather Vocabulary and Expressions",
-        type: "pdf",
-        url: require('../../assets/file/weather_vocab.pdf')
-      },
+      
       {
         title: "Weather Conversation Practice",
         type: "link",
@@ -26,9 +22,9 @@ const unitsData = {
     description: "Explore vocabulary and expressions related to what activities you do in your spare time",
     materials: [
       {
-        title: "Hobbies Vocabulary List",
-        type: "pdf",
-        url: require('../../assets/file/hobbies_vocab.pdf')
+        title: "Leisure Conversation Practice",
+        type: "link",
+        url: "https://www.eslfast.com/robot/topics/smalltalk/smalltalk10.htm"
       }
     ],
     video: "https://youtu.be/DaDaZcBE8MQ?si=UmNVrWd5YDG5xU_a"
@@ -37,13 +33,9 @@ const unitsData = {
     title: "Unit 3: Daily Routines",
     description: "Learn how to describe your daily routine and activities",
     materials: [
+      
       {
-        title: "Daily Routines Vocabulary",
-        type: "pdf",
-        url: require('../../assets/file/routines_vocab.pdf')
-      },
-      {
-        title: "Daily Activities Conversation",
+        title: "Daily Activities Conversation Practice",
         type: "link",
         url: "https://oxfordlanguageclub.com/page/blog/daily-routines-in-english"
       }
@@ -55,9 +47,9 @@ const unitsData = {
     description: "Explore vocabulary and expressions related to ordering food at a restaurant",
     materials: [
       {
-        title: "Food Vocabulary List",
-        type: "pdf",
-        url: require('../../assets/file/food_vocab.pdf')
+        title: "Ordering Food and Drinks Conversation Practice",
+        type: "link",
+        url: "https://www.eslfast.com/robot/topics/restaurant/restaurant04.htm"
       }
     ],
     video: "https://youtu.be/bgfdqVmVjfk?si=_R8zCepMo_0OKEHV"
@@ -66,13 +58,9 @@ const unitsData = {
     title: "Unit 5: Travel and Transportation",
     description: "Learn how to navigate travel situations and use transportation",
     materials: [
+      
       {
-        title: "Transportation Vocabulary",
-        type: "pdf",
-        url: require('../../assets/file/transportation_vocab.pdf')
-      },
-      {
-        title: "Travel Expressions Guide",
+        title: "Travel Expressions Guide Practice",
         type: "link",
         url: "https://www.novakidschool.com/blog/english-for-travel-useful-phrases/"
       }
@@ -350,9 +338,9 @@ export default function Materials({ navigation }) {
         <Image 
           source={require('../../assets/images/adaptive_icon.png')} 
           style={styles.logo}
-          resizeMode="contain"
+          //resizeMode="contain"
         />
-        <Text style={styles.headerText}>G-Lingua</Text>
+        <Text style={styles.headerText}>G-Lingua - Materials</Text>
       </View>
       
       {selectedUnit ? renderUnitContent() : renderUnitsList()}
@@ -373,9 +361,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   logo: {
-    width: 40,
+    width: 80,
     height: 40,
-    marginRight: 10,
+    marginRight: 1,
   },
   headerText: {
     color: 'white',
