@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from "expo-router";
 import { useFocusEffect } from '@react-navigation/native';
 
-
 // Helper function to get unit icon (which was missing in the original code)
 const getUnitIcon = (title) => {
   // You might want to customize this based on your unit titles
@@ -32,6 +31,9 @@ export default function Home() {
       const currentUser = await AsyncStorage.getItem('currentUser');
       if (currentUser) {
         setUsername(currentUser);
+      } else {
+        // Jika tidak ada currentUser, set username menjadi kosong
+        setUsername("");
       }
 
       // Load progress data
@@ -69,9 +71,12 @@ export default function Home() {
         setUnitsStarted(startedUnits.length);
         
         // Calculate & update overall progress
+        // If no units started, set progress to 0
         if (startedUnits.length > 0) {
           const totalProgress = startedUnits.reduce((sum, unit) => sum + unit.progress, 0);
           setOverallProgress(Math.round(totalProgress / startedUnits.length));
+        } else {
+          setOverallProgress(0);
         }
         
         // Update recent units (last 2 accessed)
@@ -86,9 +91,18 @@ export default function Home() {
         }));
 
         setRecentUnits(mappedUnits);
+      } else {
+        // Jika tidak ada progressData, set default values
+        setUnitsStarted(0);
+        setOverallProgress(0);
+        setRecentUnits([]);
       }
     } catch (error) {
       console.error('Error loading user data:', error);
+      // Reset states in case of error
+      setUnitsStarted(0);
+      setOverallProgress(0);
+      setRecentUnits([]);
     }
   };
 
