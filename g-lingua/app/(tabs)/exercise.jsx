@@ -8,9 +8,9 @@ const exercisesData = {
     description: "Practice your understanding of weather-related vocabulary and expressions.",
     exercises: [
       {
-        type: "Multiple Choice",
-        description: "Choose the correct answer from the options.",
-        url: "/tabcontent/exercise/unit1/multiple_choice"
+        type: "Listen to the Audio",
+        description: "Type the sentence you hear.",
+        url: "/tabcontents/exercise/unit1/listening"
       },
       {
         type: "Fill in the Blanks",
