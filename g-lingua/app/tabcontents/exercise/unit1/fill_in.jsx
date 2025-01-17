@@ -143,7 +143,9 @@ const FillIn = () => {
       </View>
 
       {/* Konten Lesson */}
-      <Lesson />
+      <View style={styles.card}>
+        <Lesson />
+      </View>
     </View>
   );
 };
@@ -152,8 +154,7 @@ const FillIn = () => {
 const styles = StyleSheet.create({
   fillInContainer: {
     flex: 1,
-    backgroundColor: '#f4f4f4',
-    padding: 20,
+    backgroundColor: '#F0E3CA',
   },
   header: {
     flexDirection: 'row',
@@ -173,10 +174,20 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 20,
+    margin: 20,
+    elevation: 5, // shadow effect for iOS and Android
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+  },
   lessonContainer: {
     flexGrow: 1,
     alignItems: 'center',
-    padding: 10,
   },
   heading: {
     fontSize: 22,
